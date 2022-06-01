@@ -1,5 +1,10 @@
 # Research-Track-II
- ## Doxygen
+ ##                                  Doxygen
+  <p align="center">
+ 
+  <img src="images/images.jpeg" width="650" title="hover text">
+</p>
+ 
  #### brief description:  
  
  Doxygen is the de facto standard tool for generatingdocumentationfrom annotatedC++ sources, 
@@ -14,7 +19,9 @@
  This is very useful to quickly find your way in large source distributions. 
  Doxygencan also visualize the relations between the various elements by means of include dependency graphs, 
  inheritance diagrams, and collaboration diagrams, which are all generated automatically                                                      
- •You can also use doxygenfor creating normal documentation   
+ •You can also use doxygenfor creating normal documentation 
+ 
+
  
  #### what we do:
  
@@ -23,7 +30,12 @@ where we explained the functioning of the various scriprts and how they were con
 for this work we could use sphinux or doxygen and we used doxygen as it was more convenient for scripts written in C ++.                            
 In our case we had two scriprts which were cont_move.cpp and novi_goal_rob.cpp.
 
-## Jupyter
+##                                  Jupyter
+
+ <p align="center">
+ 
+  <img src="images/623d8b3bd384c356fff4d0c8_memgraph-jupyter-notebook-cover.png" width="650" title="hover text">
+</p>
 
 #### brief description:
 
