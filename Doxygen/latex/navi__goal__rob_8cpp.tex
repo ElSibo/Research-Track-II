@@ -1,0 +1,174 @@
+\hypertarget{navi__goal__rob_8cpp}{}\doxysection{/home/elsibo/ros\+\_\+ws/src/\+Third\+\_\+assignment/navi\+\_\+goal\+\_\+rob/src/navi\+\_\+goal\+\_\+rob.cpp File Reference}
+\label{navi__goal__rob_8cpp}\index{/home/elsibo/ros\_ws/src/Third\_assignment/navi\_goal\_rob/src/navi\_goal\_rob.cpp@{/home/elsibo/ros\_ws/src/Third\_assignment/navi\_goal\_rob/src/navi\_goal\_rob.cpp}}
+
+
+this script is the user manaeg the user interface  
+
+
+{\ttfamily \#include $<$ros/ros.\+h$>$}\newline
+{\ttfamily \#include $<$move\+\_\+base\+\_\+msgs/\+Move\+Base\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$actionlib/client/simple\+\_\+action\+\_\+client.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}geometry\+\_\+msgs/\+Point32.\+h\char`\"{}}\newline
+Include dependency graph for navi\+\_\+goal\+\_\+rob.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{navi__goal__rob_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{navi__goal__rob_8cpp_a21e20cc0b6656ae897b3cbb969b93241}\label{navi__goal__rob_8cpp_a21e20cc0b6656ae897b3cbb969b93241}} 
+typedef actionlib\+::\+Simple\+Action\+Client$<$ move\+\_\+base\+\_\+msgs\+::\+Move\+Base\+Action $>$ {\bfseries Move\+Base\+Client}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{navi__goal__rob_8cpp_aca804897307672add9ae8e4bced76834}{go\+Point}} (float n)
+\begin{DoxyCompactList}\small\item\em callback function for set the go\+Point choise \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{navi__goal__rob_8cpp_a2485f431b3a34c00f60638d555269457}{controller}} (float n)
+\begin{DoxyCompactList}\small\item\em callback function for set velocity desidered \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{navi__goal__rob_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em main function \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{navi__goal__rob_8cpp_a350594df3e8f6948c8462edfd41ce086}\label{navi__goal__rob_8cpp_a350594df3e8f6948c8462edfd41ce086}} 
+ros\+::\+Publisher {\bfseries pub}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+this script is the user manaeg the user interface 
+
+that recevi the input and send it to other node \begin{DoxyAuthor}{Author}
+Bouazza EL Moutaouakil 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+14\textbackslash{}05\textbackslash{}2022
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em Move\+Base\+Client} & ac (Global)definition of the client \\
+\hline
+{\em pub} & (Global) definition\\
+\hline
+\end{DoxyParams}
+Publisher\+: ~\newline
+
+
+ros\+::\+Publisher pub
+
+
+\begin{DoxyParams}{Parameters}
+{\em pub} & publishing on /vel\+\_\+cont the user input\\
+\hline
+\end{DoxyParams}
+Action\+: ~\newline
+
+
+Move\+Base\+Client ac
+
+
+\begin{DoxyParams}{Parameters}
+{\em Move\+Base\+Client} & ac send the choise (go\+\_\+position) of user to the server ~\newline
+\\
+\hline
+\end{DoxyParams}
+Description\+:
+
+this node allows for user three type of choise
+
+In the user interface with three choices\+:
+
+A) GO TO P\+O\+I\+NT\+: Where the user enters the coordinates of the point where the robot must go.
+
+B) C\+O\+N\+T\+R\+O\+L\+L\+ER\+: Where the user moves the robot with a controller, but the robot can crash with obstacles.
+
+C) A\+S\+S\+I\+S\+T\+E\+NT C\+O\+N\+T\+R\+O\+L\+L\+ER\+: where the user moves the robot with a controller, but the robot does not crash into obstacles, because it is equipped with laserscan which makes it stop near obstacles.
+
+and after reading the choise of user ~\newline
+ send it to other node 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{navi__goal__rob_8cpp_a2485f431b3a34c00f60638d555269457}\label{navi__goal__rob_8cpp_a2485f431b3a34c00f60638d555269457}} 
+\index{navi\_goal\_rob.cpp@{navi\_goal\_rob.cpp}!controller@{controller}}
+\index{controller@{controller}!navi\_goal\_rob.cpp@{navi\_goal\_rob.cpp}}
+\doxysubsubsection{\texorpdfstring{controller()}{controller()}}
+{\footnotesize\ttfamily void controller (\begin{DoxyParamCaption}\item[{float}]{n }\end{DoxyParamCaption})}
+
+
+
+callback function for set velocity desidered 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & data that switch off/on the assistent control \\
+\hline
+{\em a} & char variable that use for read the imput user \\
+\hline
+{\em b,c,z} & float variable to set velocity \\
+\hline
+{\em pub} & variable that send velocity on the publisher \textbackslash{}void function\\
+\hline
+\end{DoxyParams}
+Description\+: This function read input of the user, and set the linear and angular velocity on /vel\+\_\+cont and set the assistant control to on/off \mbox{\Hypertarget{navi__goal__rob_8cpp_aca804897307672add9ae8e4bced76834}\label{navi__goal__rob_8cpp_aca804897307672add9ae8e4bced76834}} 
+\index{navi\_goal\_rob.cpp@{navi\_goal\_rob.cpp}!goPoint@{goPoint}}
+\index{goPoint@{goPoint}!navi\_goal\_rob.cpp@{navi\_goal\_rob.cpp}}
+\doxysubsubsection{\texorpdfstring{goPoint()}{goPoint()}}
+{\footnotesize\ttfamily void go\+Point (\begin{DoxyParamCaption}\item[{float}]{n }\end{DoxyParamCaption})}
+
+
+
+callback function for set the go\+Point choise 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & data that switch off the assistent control \\
+\hline
+{\em ac} & definition of client (used for set data) \\
+\hline
+{\em x,y} & float variable that stored the choise of user \\
+\hline
+{\em cont} & int variable that use to enter/exit on the while loop\\
+\hline
+\end{DoxyParams}
+\textbackslash{}void function
+
+Description\+:
+
+This function let the user insert the coordinate of the point and if this cordinate are out of the perimeter request them again otherwise stop controller and send the to server the coordinate then ask the user if wont to calcel the goal and if yes cancel the goal if no starting with timeout \mbox{\Hypertarget{navi__goal__rob_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{navi__goal__rob_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{navi\_goal\_rob.cpp@{navi\_goal\_rob.cpp}!main@{main}}
+\index{main@{main}!navi\_goal\_rob.cpp@{navi\_goal\_rob.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+main function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & \\
+\hline
+{\em argv} & \\
+\hline
+{\em init} & defined the node navi\+\_\+goal\+\_\+rob \\
+\hline
+{\em nn} & defined the nodehandler \\
+\hline
+{\em pub} & defined the publisher \\
+\hline
+{\em s} & char variable that stored the user input\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+always 0
+\end{DoxyReturn}
+Descriptio\+: the main function initialize the node, the nodehandler and the publisher, after that start with a andless loop wich calls the functions depending of the user choise break the loop and stopping the node. ~\newline
+ 
