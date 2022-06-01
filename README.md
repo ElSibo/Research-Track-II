@@ -96,13 +96,23 @@ import os
 
   ####  Description:
 
-    This function let the user insert the coordinate of the point and 
-    if this cordinate are out of the perimeter request them again otherwise stop controller 
-    and send the to server the coordinate then ask the user 
-    if wont to calcel the goal and 
-    if yes cancel the goal if no starting with timeout.
+This function let the user insert the coordinate of the point and                                             
+if this cordinate are out of the perimeter request them again otherwise stop controller                             
+and send the to server the coordinate then ask the user                            
+if wont to calcel the goal and                                                       
+if yes cancel the goal if no starting with timeout.                                               
+    
+<p align="center">
+ 
+  <img src="images/Schermata 2022-06-01 alle 14.53.28.png" width="850" title="hover text">
+</p>
+
     in this function we have used two widgets floats test that take the desired coordinates 
     and two buttons one sends the goal and the other stops the function, 
+<p align="center">
+ 
+  <img src="images/Schermata 2022-06-01 alle 14.54.13.png" width="800" title="hover text">
+</p>
     we have also added a widchet check to cancel the goal.
 
 #### function that we used to implement the function go to point
@@ -128,16 +138,59 @@ import os
 ####  Description:
 
 This function read input of the user, and set the linear and angular velocity on /vel_cont and set the assistant control to on/off
-function that we used to implement the function controller
+function that we used to implement the function controller, 
+in this function we have used two widgets sliders that take the linear and angular speeds 
+and two buttons one resets the speeds to 0 and the other stops the function, making the buttons of the main menu active.
 
-  VLin():
-      function used for set the linear velocity of robot
-  VAng():
-      function  used for set the Angular velocity of robot
-  resetV():
-      function  used for reset to 0 the velocity of the robot
-  stopping():
-      function used for stop the function controller with closing the widgets
+<p align="center">
+ 
+  <img src="images/Schermata 2022-06-01 alle 14.55.56.png" width="750" title="hover text">
+</p>
 
-  
+    VLin():
+        function used for set the linear velocity of robot
+    VAng():
+        function  used for set the Angular velocity of robot
+    resetV():
+        function  used for reset to 0 the velocity of the robot
+    stopping():
+        function used for stop the function controller with closing the widgets
 
+###  main()
+
+####  Description:
+
+the main function initialize the node, the nodehandler and the publisher,                                                                           
+after that start with a andless loop wich calls the functions depending of the user choise break the loop and stopping the node.        
+in this function we used 4 buttons (widgets)                                                                                       
+3 called the functions go_to point(), Controller(), AssController(),                                                                   
+and the last stop the program
+
+<p align="center">
+ 
+  <img src="images/Schermata 2022-06-01 alle 14.53.04.png" width="850" title="hover text">
+</p>
+
+##### that is the call_back of the main function 
+```py
+if __name__ == '__main__':
+ main()
+```
+
+#### function that we used to implement the function main
+
+    On_p():
+        function used for call_back function goPoint()
+    contr():
+        function  used for call_back function controller() Assistant_Controller = OFF
+    Acontr():
+        function  used for call_back function controller() Assistant_Controller = ON
+    stopping():
+        function used for stop the program with the function exit() exiting from program
+
+##### that label show the 3D view of the simulation 
+
+<p align="center">
+ 
+  <img src="images/Schermata 2022-06-01 alle 14.52.32.png" width="600" title="hover text">
+</p>
