@@ -96,11 +96,14 @@ import os
 
   ####  Description:
 
-This function let the user insert the coordinate of the point and 
-if this cordinate are out of the perimeter request them again otherwise stop controller 
-and send the to server the coordinate then ask the user 
-if wont to calcel the goal and 
-if yes cancel the goal if no starting with timeout.
+    This function let the user insert the coordinate of the point and 
+    if this cordinate are out of the perimeter request them again otherwise stop controller 
+    and send the to server the coordinate then ask the user 
+    if wont to calcel the goal and 
+    if yes cancel the goal if no starting with timeout.
+    in this function we have used two widgets floats test that take the desired coordinates 
+    and two buttons one sends the goal and the other stops the function, 
+    we have also added a widchet check to cancel the goal.
 
 #### function that we used to implement the function go to point
 
@@ -119,109 +122,22 @@ if yes cancel the goal if no starting with timeout.
     stopping():
         function used for stop the function go_Point with closing the widgets
 
-```py
-global G_Ret,GNot_Ret,t
-t=False
-G_Ret=0
-GNot_Ret=0
 
-def setX(b):
-    global Cordx
-    Cordx=b['new']
-    
-def setY(b):
-    global Cordy
-    Cordy=b['new']
-    
-def pos_rob(m):
-    global x_rob
-    global y_rob
-    x_rob = m.pose.pose.position.x
-    y_rob = m.pose.pose.position.y
-        
-def V_Cancel(b):
-    
-    t=b['new']
-    
-    
-    
-def goPoint(n):
+###  controller()
 
-   #tell the action client that we want to spin a thread by default
+####  Description:
 
-    ac = actionlib.SimpleActionClient('move_base',MoveBaseAction)
+This function read input of the user, and set the linear and angular velocity on /vel_cont and set the assistant control to on/off
+function that we used to implement the function controller
 
-    rospy.loginfo("Waiting for action server to start.")
-  # wait for the action server to start
-
-    def SendGoal(b): 
-  
-            goal = MoveBaseGoal()
-
-
-              #we'll send a goal to the robot to move 1 meter forward
-            goal = MoveBaseGoal()
-            goal.target_pose.header.frame_id = "map"
-            goal.target_pose.header.stamp = rospy.Time.now()
-            goal.target_pose.pose.position.x = Cordx
-            goal.target_pose.pose.position.y = Cordy
-            goal.target_pose.pose.orientation.w = 1.0
-
-              #will wait for infinite time
-
-            print("cordinate Goal : ",goal.target_pose.pose.position.y,goal.target_pose.pose.position.x)
-            
-            ac.send_goal(goal)
-     
-    def Timeout(b):
-
-           
-        BCancelG=widgets.Checkbox(value=False,description='Cancel Goal',disabled=False,indent=False)
-        display(BCancelG)
-        rospy.loginfo("Waiting the goal for 25 second")
-        sleep(5)
-        
-        BCancelG.observe(V_Cancel,names='value')
-        if t:
-            ac.cancel_all_goals()
-            rospy.loginfo("Goal Canceled !!!")
-            
-        else:
-        
-            sleep(20)
-            if (Cordx-0.4 < x_rob < Cordx+0.4) and (Cordy-0.4 < y_rob < Cordy+0.4):
-
-                rospy.loginfo("Goal Rechead !!!")
-                G_Ret=G_Ret+1
-            else:
-                ac.cancel_all_goals()
-                rospy.loginfo("Goal not Reached !!!")
-                GNot_Ret=GNot_Ret+1
-        BCancelG.close()
-        
-    def stopping(b):
-        BSendG.close()
-        X.close()
-        Y.close()
-        Bstop.close()
-        
-    X=widgets.FloatText(description='X_cord:',disabled=False)
-    Y=widgets.FloatText(description='Y_cord:',disabled=False)
-
-    BSendG = widgets.Button(description='Send_Goal',disabled=False,button_style='',tooltip='Click me',icon='check')
-    Bstop = widgets.Button(description='STOP',disabled=False,button_style='danger',tooltip='Click me',icon='check')
-    my_vel= Point32()
-    my_vel.x =0.0
-    my_vel.y =0.0 
-    my_vel.z=n			# to stop the controller
-    pub.publish(my_vel)
-    X.observe(setX, names='value')
-    Y.observe(setY, names='value') 
-    BSendG.on_click(SendGoal)
-    BSendG.on_click(Timeout)
-    Bstop.on_click(stopping)
-    display(HBox([VBox([X, Bstop]),VBox([Y,BSendG])]))
-    ```
+  VLin():
+      function used for set the linear velocity of robot
+  VAng():
+      function  used for set the Angular velocity of robot
+  resetV():
+      function  used for reset to 0 the velocity of the robot
+  stopping():
+      function used for stop the function controller with closing the widgets
 
   
 
