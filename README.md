@@ -234,11 +234,13 @@ if __name__ == '__main__':
  
   <img src="images/Schermata 2022-06-03 alle 21.28.53.png" width="400" title="hover text">
 </p>
-      the FIRST graph is about without obstacle
-      the SECOND graph is about with obstacle
-      BLUE= My solution
-      ORANGE= Prof solution
-      the file of matlab statistic.m contain all data. 
+
+             the FIRST graph is about without obstacle
+             the SECOND graph is about with obstacle
+             BLUE= My solution
+             ORANGE= Prof solution
+             the file of matlab statistic.m contain all data.                                     
+   
    Analyzing the data, in the case of the circuit without obstacles,                   
    we noticed that in our solution the average time is shorter,                                                            
    this is mainly due to the faster movement when the robot does not see the silver tokens;                             
