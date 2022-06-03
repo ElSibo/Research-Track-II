@@ -206,3 +206,42 @@ if __name__ == '__main__':
  
   <img src="images/Schermata 2022-06-01 alle 14.52.32.png" width="600" title="hover text">
 </p>
+
+  ##   Statistics:
+
+   ### Description:
+   For the statistics part,                                                                                                       
+   we were asked to evaluate the efficiency of our solution of the first assignment of RT1;                          
+   to do this we also used a solution provided by prof.                                
+   To do this we tested our solution 20 times,                                     
+   and we repeated the test by inserting in the arena two obstacles,                                          
+   at the coordinates at (3, -4.25) (3,4.25),                    
+   then we made the solution of prof. in order to have data that can be compared.                                                                          
+   In the data collection we considered the time it took the robot starting                            
+   from the first token-silver that it collected up to the ninth token-silver collected;                         
+   we considered as null values (0) the trials that corresponded to,                                
+   when the robot changed direction (clock-wise motion),                                             
+   when the robot crashed the wall or when the program stopped.                                                
+   Analyzing the data, in the case of the circuit without obstacles,                   
+   we noticed that in our solution the average time is shorter,                                                            
+   this is mainly due to the faster movement when the robot does not see the silver tokens;                             
+   but we have a more frequent number of failures.                                                          
+   So now let's try to see if a relationship between the failures that occurred in the algorithms                  
+   or are only due to chance.
+   H0 = due to chance.                                                           
+   H1 = due to the effincency of the program.                                                             
+   After calculating the value of chi2 = 1.111 and with a DOF = 1, 
+   the probability of the H0 (which we have taken from the table about 32%) 
+   lies between 50% (0.45) and 0.25% (1.32). 
+   which is a considerable percentage and for this reason I cannot reject the H0 hypothesis.
+   Therefore my solution is also good as it takes less time.
+   Analyzing the data, in the case of the circuit with obstacles,
+   after calculating the value of chi2 = 10.417 and with a DOF = 1, 
+   the probability of the H0 (which we have taken from the table ) 
+   lies between 0.5% (7.88) and 0.1% (10.83).
+   The probabiliti of H0 is not to high, so we can refuse the H0,
+   it is not due to chance, but to the efficiency of the programs.
+
+   #### note:
+   it is fair to note that these programs have been designed to make the robot run without obstacles,
+   and that the efficiency of the program DEPENDS VERY MUCH ON THE POSITION OF THE OBSTACLE.
