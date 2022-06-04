@@ -207,6 +207,13 @@ if __name__ == '__main__':
   <img src="images/Schermata 2022-06-01 alle 14.52.32.png" width="600" title="hover text">
 </p>
 
+#####   that label show the Reach and Not Reach Goal 
+
+<p align="center">
+ 
+  <img src="images/Schermata 2022-06-03 alle 22.51.15.png" width="600" title="hover text">
+</p>
+
   ##   Statistics:
 
    ### Description:
