@@ -253,7 +253,7 @@ if __name__ == '__main__':
    this is mainly due to the faster movement when the robot does not see the silver tokens;                             
    but we have a more frequent number of failures.                                                          
    So now let's try to see if a relationship between the failures that occurred in the algorithms                  
-   or are only due to chance.
+   or are only due to chance.                                                                              
    H0 = due to chance.                                                           
    H1 = due to the effincency of the program.
    <p align="center">
@@ -277,7 +277,8 @@ if __name__ == '__main__':
  
   <img src="images/Schermata 2022-06-03 alle 20.24.52.png" width="500" title="hover text">
 </p>
-   The probabiliti of H0 is not to high, so we can refuse the H0,
+   The probabiliti of H0 is not to high,                                                    
+   so we can refuse the H0,                                                                             
    it is not due to chance, but to the efficiency of the programs.
 
    #### note:
